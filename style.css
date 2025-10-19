@@ -1,122 +1,52 @@
-body {
-  margin: 0;
-  background: #1a1a1a;
-  font-family: sans-serif;
-  overflow-x: hidden;
+// Candles
+const candles = document.querySelectorAll('.candle');
+let blown = false;
+
+candles.forEach(candle => {
+  candle.addEventListener('click', () => {
+    if (!blown) {
+      blown = true;
+      // Change candles to extinguished color
+      candles.forEach(c => c.style.background = 'gray');
+      startConfetti();
+    }
+  });
+});
+
+// Confetti canvas
+const canvas = document.getElementById('confetti');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let confettiPieces = [];
+
+function startConfetti() {
+  for (let i = 0; i < 200; i++) {
+    confettiPieces.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height - canvas.height,
+      size: Math.random() * 6 + 4,
+      speed: Math.random() * 3 + 2,
+      color: `hsl(${Math.random()*360}, 100%, 50%)`
+    });
+  }
+  requestAnimationFrame(updateConfetti);
 }
 
-.scene {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
+function updateConfetti() {
+  ctx.clearRect(0,0,canvas.width, canvas.height);
+  confettiPieces.forEach(p => {
+    ctx.fillStyle = p.color;
+    ctx.fillRect(p.x, p.y, p.size, p.size);
+    p.y += p.speed;
+    if (p.y > canvas.height) p.y = -10;
+  });
+  requestAnimationFrame(updateConfetti);
 }
 
-.banner {
-  position: absolute;
-  top: 20px;
-  font-size: 2em;
-  color: #fff;
-  text-align: center;
-  width: 100%;
-}
-
-.cake {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.layer {
-  border-radius: 50%;
-  margin-bottom: -20px;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
-}
-
-.layer.bottom {
-  width: 300px;
-  height: 120px;
-  background: linear-gradient(#8b4513, #5a2d0c);
-}
-
-.layer.middle {
-  width: 220px;
-  height: 100px;
-  background: linear-gradient(#a0522d, #6b3e1c);
-}
-
-.layer.top {
-  width: 150px;
-  height: 80px;
-  background: linear-gradient(#cd853f, #8b4513);
-}
-
-.candles {
-  position: absolute;
-  top: -60px;
-  display: flex;
-  gap: 15px;
-}
-
-.candle {
-  width: 20px;
-  height: 50px;
-  background: yellow;
-  border-radius: 5px;
-  position: relative;
-}
-
-.number-candle {
-  position: absolute;
-  top: -60px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 2em;
-  color: red;
-}
-
-.decorations .sprinkle {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background: pink;
-  border-radius: 50%;
-}
-
-.decorations .strawberry {
-  position: absolute;
-  width: 15px;
-  height: 20px;
-  background: red;
-  border-radius: 50%;
-}
-
-.decorations .choco {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: #3e2b1f;
-  border-radius: 50%;
-}
-
-.cat {
-  position: absolute;
-  width: 60px;
-}
-
-.cat1 { left: 10%; bottom: 50px; }
-.cat2 { left: 80%; bottom: 50px; }
-.cat3 { left: 50%; bottom: 20px; transform: translateX(-50%); }
-
-canvas#confetti {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
+// Make canvas resize dynamically
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
