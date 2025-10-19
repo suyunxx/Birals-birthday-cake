@@ -1,0 +1,176 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f0e1;
+  overflow: hidden;
+}
+
+.banner {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffcc00;
+  color: #000;
+  font-weight: bold;
+  font-size: 28px;
+  padding: 15px 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #999;
+  animation: swing 2s infinite alternate ease-in-out;
+}
+
+@keyframes swing {
+  0% { transform: translateX(-50%) rotate(-5deg); }
+  50% { transform: translateX(-50%) rotate(5deg); }
+  100% { transform: translateX(-50%) rotate(-5deg); }
+}
+
+.cake-scene {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.cake-plate {
+  width: 350px;
+  height: 20px;
+  background: #c69c6d;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+}
+
+.cake {
+  position: relative;
+  z-index: 2;
+}
+
+.cake-layer {
+  background: #7b3f00; /* chocolate */
+  border: 4px solid #fff;
+  border-radius: 50px 50px 20px 20px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.layer-bottom {
+  width: 300px;
+  height: 70px;
+  z-index: 1;
+}
+
+.layer-middle {
+  width: 220px;
+  height: 60px;
+  top: -40px;
+  z-index: 2;
+}
+
+.layer-top {
+  width: 160px;
+  height: 50px;
+  top: -70px;
+  z-index: 3;
+}
+
+/* Decorations */
+.choco-deco { position: relative; height: 100%; }
+.sprinkles, .strawberries, .choco-bits {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.sprinkles { background: radial-gradient(#fff 2px, transparent 2px); background-size: 10px 10px; opacity: 0.8; }
+.strawberries { background: radial-gradient(#ff0000 5px, transparent 5px); background-size: 40px 40px; opacity: 0.9; }
+.choco-bits { background: radial-gradient(#3e1b00 3px, transparent 3px); background-size: 15px 15px; opacity: 0.8; }
+
+/* Mini candles */
+.mini-candle {
+  position: absolute;
+  bottom: 100%;
+  width: 10px;
+  height: 35px;
+  background: #fff;
+  border-radius: 3px;
+}
+
+.mini-candle::after {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 2px;
+  width: 6px;
+  height: 15px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #00f, #fff);
+  box-shadow: 0 0 10px #3B82F6, 0 0 20px #00f;
+  animation: flicker 0.4s infinite;
+}
+
+@keyframes flicker {
+  0%,100%{opacity:1;}
+  50%{opacity:0.6; transform: translateY(-2px);}
+}
+
+/* Number candle 17 */
+.number-candle {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 25px;
+  height: 50px;
+  background: #fff;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 50px;
+  font-weight: bold;
+  color: #7b3f00;
+}
+
+.number-candle::after {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 10px;
+  width: 6px;
+  height: 15px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #00f, #fff);
+  box-shadow: 0 0 10px #3B82F6, 0 0 20px #00f;
+  animation: flicker 0.4s infinite;
+}
+
+/* Cats */
+.cat {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  animation: catwalk 5s infinite alternate ease-in-out;
+}
+
+.cat1 { bottom: 50px; left: 100px; }
+.cat2 { bottom: 50px; right: 120px; }
+.cat3 { bottom: 50px; left: 250px; }
+
+@keyframes catwalk {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(-5deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Balloons */
+.balloon {
+  position: absolute;
+  width: 50px;
+  height: 70px;
+  border-radius: 50% 50% 50% 50%;
+  background: red;
+  cursor: pointer;
+}
