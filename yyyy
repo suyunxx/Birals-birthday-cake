@@ -1,0 +1,144 @@
+body {
+  margin: 0;
+  background: #1a1a1a;
+  font-family: sans-serif;
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+canvas#confetti {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.banner {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 2em;
+  color: #fff;
+  z-index: 2;
+}
+
+.scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+/* Cake layers */
+.cake {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.plate {
+  width: 360px;
+  height: 20px;
+  background: #e0e0e0;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -10px;
+  z-index: -1;
+}
+
+.layer {
+  border-radius: 50% 50% 20% 20%;
+  margin-bottom: -20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+.layer.bottom {
+  width: 300px;
+  height: 120px;
+  background: linear-gradient(#8b4513, #5a2d0c);
+}
+
+.layer.middle {
+  width: 220px;
+  height: 100px;
+  background: linear-gradient(#a0522d, #6b3e1c);
+}
+
+.layer.top {
+  width: 150px;
+  height: 80px;
+  background: linear-gradient(#cd853f, #8b4513);
+}
+
+/* Candles */
+.candles {
+  position: absolute;
+  top: -60px;
+  display: flex;
+  gap: 20px;
+}
+
+.candle {
+  width: 20px;
+  height: 50px;
+  background: yellow;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.number-candle {
+  position: absolute;
+  top: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.5em;
+  color: red;
+  font-weight: bold;
+}
+
+/* Decorations */
+.decorations .sprinkle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: pink;
+  border-radius: 50%;
+}
+
+.decorations .strawberry {
+  position: absolute;
+  width: 15px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+}
+
+.decorations .choco {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #3e2b1f;
+  border-radius: 50%;
+}
+
+/* Cats */
+.cat {
+  position: absolute;
+  width: 60px;
+  z-index: 2;
+}
+
+.cat1 { left: 10%; bottom: 50px; }
+.cat2 { left: 80%; bottom: 50px; }
+.cat3 { left: 50%; bottom: 20px; transform: translateX(-50%); }
+
