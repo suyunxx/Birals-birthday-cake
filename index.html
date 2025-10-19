@@ -3,70 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Birthday Party for Ankit</title>
+  <title>Birthday Cake</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Background banner -->
-  <div class="banner">
-    <span>Happy Birthday Ankit!</span>
-  </div>
+  <div class="scene">
+    <canvas id="confetti"></canvas>
 
-  <!-- Cake -->
-  <div class="cake-scene">
-    <div class="cake-plate"></div>
+    <div class="banner">HAPPY BIRTHDAY ANKIT</div>
 
     <div class="cake">
-      <!-- Bottom Layer -->
-      <div class="cake-layer layer-bottom">
-        <div class="choco-deco">
-          <div class="sprinkles"></div>
-          <div class="strawberries"></div>
-          <div class="choco-bits"></div>
-        </div>
+      <div class="layer bottom"></div>
+      <div class="layer middle"></div>
+      <div class="layer top"></div>
+
+      <div class="candles">
+        <div class="candle" data-candle="1"></div>
+        <div class="candle" data-candle="2"></div>
+        <div class="candle" data-candle="3"></div>
+        <div class="number-candle">1</div>
       </div>
 
-      <!-- Middle Layer -->
-      <div class="cake-layer layer-middle">
-        <div class="choco-deco">
-          <div class="sprinkles"></div>
-          <div class="strawberries"></div>
-          <div class="choco-bits"></div>
-        </div>
-        <!-- Mini candles -->
-        <div class="mini-candle" style="left: 20%;"></div>
-        <div class="mini-candle" style="left: 40%;"></div>
-        <div class="mini-candle" style="left: 60%;"></div>
-        <div class="mini-candle" style="left: 80%;"></div>
-      </div>
-
-      <!-- Top Layer -->
-      <div class="cake-layer layer-top">
-        <div class="choco-deco">
-          <div class="sprinkles"></div>
-          <div class="strawberries"></div>
-          <div class="choco-bits"></div>
-        </div>
-        <!-- Number candle -->
-        <div class="number-candle">17</div>
+      <div class="decorations">
+        <div class="sprinkle" style="top:10px; left:20px;"></div>
+        <div class="sprinkle" style="top:15px; left:50px;"></div>
+        <div class="strawberry" style="top:0; left:30px;"></div>
+        <div class="choco" style="top:5px; left:70px;"></div>
       </div>
     </div>
 
-    <!-- Animated cats -->
     <img src="cat1.png" class="cat cat1">
     <img src="cat2.png" class="cat cat2">
     <img src="cat3.png" class="cat cat3">
-
-    <!-- Balloons -->
-    <div class="balloon" style="top: 10px; left: 10px;"></div>
-    <div class="balloon" style="top: 10px; right: 10px;"></div>
-    <div class="balloon" style="bottom: 10px; left: 10px;"></div>
-    <div class="balloon" style="bottom: 10px; right: 10px;"></div>
-
-    <!-- Confetti canvas -->
-    <canvas id="confetti"></canvas>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
