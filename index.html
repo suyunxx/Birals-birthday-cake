@@ -7,16 +7,21 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <canvas id="confetti"></canvas>
+
+  <div class="banner">HAPPY BIRTHDAY ANKIT</div>
+
   <div class="scene">
-    <canvas id="confetti"></canvas>
-
-    <div class="banner">HAPPY BIRTHDAY ANKIT</div>
-
     <div class="cake">
+      <!-- Plate -->
+      <div class="plate"></div>
+
+      <!-- Cake layers -->
       <div class="layer bottom"></div>
       <div class="layer middle"></div>
       <div class="layer top"></div>
 
+      <!-- Candles -->
       <div class="candles">
         <div class="candle" data-candle="1"></div>
         <div class="candle" data-candle="2"></div>
@@ -24,6 +29,7 @@
         <div class="number-candle">1</div>
       </div>
 
+      <!-- Decorations -->
       <div class="decorations">
         <div class="sprinkle" style="top:10px; left:20px;"></div>
         <div class="sprinkle" style="top:15px; left:50px;"></div>
@@ -32,6 +38,7 @@
       </div>
     </div>
 
+    <!-- Cats -->
     <img src="cat1.png" class="cat cat1">
     <img src="cat2.png" class="cat cat2">
     <img src="cat3.png" class="cat cat3">
@@ -40,4 +47,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
